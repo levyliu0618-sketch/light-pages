@@ -6,12 +6,12 @@
   <meta name="theme-color" content="#191b19">
   <meta name="description" content="Light Pages by Yi (Levy) Liu. A shape-changing textile concept for revisiting ordinary family journeys through light and two perspectives.">
   <title>Light Pages — Yi (Levy) Liu</title>
-  <meta name="light-pages-version" content="form-study-and-slow-light-v2">
+  <meta name="light-pages-version" content="chronological-appendix-v3">
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="update.css?v=2">
+  <link rel="stylesheet" href="update.css?v=3">
   <script src="serial.js" defer></script>
-  <script src="app.js" defer></script>
+  <script src="app.js?v=3" defer></script>
   <script src="update.js?v=2" defer></script>
   <script type="importmap">{"imports":{"three":"./three.module.js"}}</script>
   <script type="module" src="page-turn.js"></script>
@@ -97,7 +97,7 @@
   <footer class="presentation-nav"><span id="slide-count">01 / 11</span><nav id="slide-dots" aria-label="Presentation slides"></nav><div class="nav-end"><button id="prev" aria-label="Previous slide">←</button><button id="next" aria-label="Next slide">→</button></div></footer>
   <dialog id="record-dialog" aria-labelledby="record-title"><div class="record-dialog-heading"><h2 id="record-title"></h2><button id="record-close" class="close-button" aria-label="Close media viewer">×</button></div><div class="record-media"><img id="record-large" alt="" hidden><video id="record-player" controls playsinline preload="none" hidden></video></div><a id="record-original" class="quiet" target="_blank" rel="noreferrer">Open media in a new tab ↗</a></dialog>
   <dialog id="hardware-dialog"><div class="hardware-heading"><h2>Arduino setup</h2><button id="hardware-close" class="close-button" aria-label="Close Arduino setup">×</button></div><p id="demo-status" role="status" aria-live="polite">Screen only. No physical lights are connected.</p><div class="hardware-actions"><button id="connect" class="primary">Connect Arduino</button><button id="disconnect" class="quiet" hidden>Disconnect safely</button><button id="rehearsal" class="quiet" hidden>Continue with simulation</button></div><div class="setup-details"><p>Use Chrome and the local launcher. Upload the included V2 two-light sketch; close Arduino Serial Monitor before connecting.</p><p>Disconnect the servo’s power and signal; disengage its drive before opening the book by hand. Keep each LED’s series resistor. Only D6 and D11 are used.</p><p>V2 firmware required. Revisit → left / A / D6. Another view → right / B / D11. Compare → both on. Board acknowledgement confirms a command, not measured light output.</p><p>The on-screen glow is an illustrative memory cue, not a recorded light trace. These photos illustrate the concept, not one synchronised journey. No recording runs on this page.</p></div></dialog>
-  <dialog id="appendix"><div class="appendix-header"><div><p class="eyebrow">LIGHT PAGES / DESIGN ARCHIVE</p><h2>Appendix</h2></div><div><a id="pdf-link" class="quiet" href="Light_Pages_Pitch_Appendix.pdf" download>Earlier PDF · 6-page pitch</a><button id="appendix-close" class="close-button" aria-label="Close appendix">×</button></div></div><div id="appendix-content"></div></dialog>
+  <dialog id="appendix"><div class="appendix-header"><h2>Appendix</h2><button id="appendix-close" class="close-button" aria-label="Close appendix">×</button></div><div id="appendix-content"></div></dialog>
   <dialog id="image-dialog"><button id="image-close" class="close-button" aria-label="Close enlarged image">×</button><img id="image-large" src="moodboard.jpg" alt=""><p id="image-caption"></p></dialog>
   <div id="toast" role="status" hidden></div>
 </body>

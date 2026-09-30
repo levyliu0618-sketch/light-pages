@@ -22,3 +22,15 @@
 #record-original{display:block;width:max-content;max-width:100%}
 @media(max-width:900px){.record-grid{gap:10px}.record-caption{padding:8px;font-size:.7rem}}
 @media(max-width:720px){.record-grid{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:300px 240px 240px;flex:none}.record-video{grid-row:1}.record-hint{flex-direction:column;gap:3px}.design-update{height:calc(100svh - var(--head) - var(--foot));min-height:500px;padding:20px 12px;gap:0}#record-dialog{padding:14px}.record-media{height:calc(94svh - 140px)}}
+/* Appendix: a simple chronological image archive. */
+#appendix .appendix-header h2 { font-size: 1.8rem; margin: 0; }
+#appendix .archive-section { display: grid; grid-template-columns: 155px minmax(0, 1fr); gap: 24px; padding-bottom: 36px; margin-bottom: 36px; }
+#appendix .archive-section h3 { font-size: .9rem; line-height: 1.5; font-weight: 400; color: var(--muted); margin: 0; }
+#appendix .archive-section > img { max-height: none; }
+#appendix .archive-grid { gap: 18px; align-items: start; }
+#appendix .archive-grid img { max-height: none; }
+#appendix .archive-section:last-child { margin-bottom: 0; border-bottom: 0; }
+@media (max-width: 720px) {
+  #appendix .archive-section { grid-template-columns: 1fr; gap: 14px; }
+  #appendix-content { padding: 20px; }
+}
