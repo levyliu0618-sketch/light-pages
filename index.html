@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#191b19">
+  <meta name="description" content="Light Pages by Yi (Levy) Liu. A shape-changing textile concept for revisiting ordinary family journeys through light and two perspectives.">
+  <title>Light Pages — Yi (Levy) Liu</title>
+  <meta name="light-pages-version" content="presentation-and-update-v1">
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="update.css">
+  <script src="serial.js" defer></script>
+  <script src="app.js" defer></script>
+  <script src="update.js" defer></script>
+  <script type="importmap">{"imports":{"three":"./three.module.js"}}</script>
+  <script type="module" src="page-turn.js"></script>
+</head>
+<body>
+  <a class="skip" href="#slides">Skip to presentation</a>
+  <header class="topbar">
+    <a id="chapter-title" class="chapter-title" href="#1" aria-label="Return to the cover">Memories between destinations</a>
+    <div class="top-actions"><button id="appendix-open" class="quiet">Appendix</button><button id="fullscreen" class="quiet" aria-label="Enter fullscreen">Full screen ↗</button></div>
+  </header>
+  <main id="slides" tabindex="-1">
+    <section class="slide hero is-active" data-label="Memories between destinations" aria-label="Slide 1, Light Pages">
+      <div class="hero-copy"><h1>Light<br><em>Pages</em></h1><p class="hero-subtitle">Same journey.<br>Different memories.</p><p class="author">Yi (Levy) Liu</p></div>
+      <figure class="hero-image"><img src="home.jpg" alt="Light Pages concept in a home: fabric covers, glowing pages, two image displays and small removable modules" width="1536" height="1024" fetchpriority="high"></figure>
+    </section>
+    <section class="slide image-slide mood" data-label="From memory to atmosphere" aria-label="Slide 2, Moodboard" hidden>
+      <figure class="full-figure"><img src="moodboard.jpg" alt="Complete Memories Between Destinations moodboard: lived memory, sensory translation and product language" data-zoom></figure>
+    </section>
+    <section class="slide question" data-label="The design question" aria-label="Slide 3, How might we" hidden>
+      <h2 class="hmw">How might we use <em>shape-changing textiles</em> to help families revisit car journeys through each other’s eyes?</h2>
+    </section>
+    <section class="slide exploration" data-label="Finding a familiar gesture" aria-label="Slide 4, Original sketches" hidden>
+      <div class="sketch-stage" id="sketch-stage">
+        <div class="sketch-grid">
+          <button class="sketch-card chosen" id="focus-book" aria-label="Focus on Road Book Light" aria-pressed="false"><img src="sketch-1.jpg" alt="Original Road Book Light sketch"></button>
+          <button class="sketch-card" data-sketch="2" aria-label="Enlarge Rearview Fold sketch"><img src="sketch-2.jpg" alt="Original Rearview Fold sketch"></button>
+          <button class="sketch-card" data-sketch="3" aria-label="Enlarge Together Light sketch"><img src="sketch-3.jpg" alt="Original Together Light sketch"></button>
+          <button class="sketch-card" data-sketch="4" aria-label="Enlarge Family Grip Handle sketch"><img src="sketch-4.jpg" alt="Original Family Grip Handle sketch"></button>
+          <button class="sketch-card" data-sketch="5" aria-label="Enlarge Window Memory Shade sketch"><img src="sketch-5.jpg" alt="Original Window Memory Shade sketch"></button>
+          <button class="sketch-card" data-sketch="6" aria-label="Enlarge Backseat Horizon Organizer sketch"><img src="sketch-6.jpg" alt="Original Backseat Horizon Organizer sketch"></button>
+          <button class="sketch-card" data-sketch="7" aria-label="Enlarge Growing Rest Headrest sketch"><img src="sketch-7.jpg" alt="Original Growing Rest Headrest sketch"></button>
+        </div>
+        <button id="sketch-focus-close" class="quiet" hidden>All sketches ↙</button>
+      </div>
+    </section>
+    <section class="slide image-slide product" data-label="The memory book" aria-label="Slide 5, Final concept" hidden>
+      <figure class="full-figure"><img src="home.jpg" alt="Final home concept showing the open memory book, closed book and removable module" data-zoom></figure>
+    </section>
+    <section class="slide image-slide story" data-label="Keep. Revisit. Discover." aria-label="Slide 6, Full storyboard" hidden>
+      <figure class="full-figure"><img src="storyboard.jpg" alt="Full nine-panel storyboard: fit two modules before travelling, spend time together, return modules to the book, open and select a page, discover both views and remember together" data-zoom></figure>
+    </section>
+    <section class="slide demo" data-label="A way back into the memory" aria-label="Slide 7, Interactive demonstration" hidden>
+      <div class="demo-stage" id="demo-stage" data-stage="idle" aria-label="Memory and light simulation">
+        <figure class="book-simulator" aria-describedby="book-state-description">
+          <img src="book-idle.png" data-book-state="idle" alt="Light Pages model: both screens and light pages off" aria-hidden="false">
+          <img src="book-A.png" data-book-state="A" alt="Light Pages model: left screen shows the child and left outer page glows" aria-hidden="true">
+          <img src="book-B.png" data-book-state="B" alt="Light Pages model: right screen shows the road and right outer page glows" aria-hidden="true">
+          <img src="book-compare.png" data-book-state="compare" alt="Light Pages model: both screens display photos and both outer pages glow" aria-hidden="true">
+          <figcaption id="book-state-description" class="sr-only">Both displays are blank and both light pages are off.</figcaption>
+        </figure>
+      </div>
+      <div class="demo-bottom">
+        <div class="demo-actions" role="group" aria-label="Revisit a memory"><button data-stage="A" data-light="A">Revisit <span aria-hidden="true">↗</span></button><button data-stage="B" data-light="B">Another view <span aria-hidden="true">↗</span></button><button data-stage="compare" data-light="C">Compare <span aria-hidden="true">↔</span></button></div>
+        <div class="connection-bar"><span class="connection-state" id="mode-label">Simulation</span><button id="turn-mode" class="quiet" disabled>Loading page turn…</button><button id="reset-demo" class="quiet" data-stage="idle" data-light="0">Reset / lights off</button><button id="hardware-open" class="quiet">Arduino setup ↗</button></div>
+      </div>
+      <p id="demo-announcement" class="sr-only" role="status" aria-live="polite">Simulation. No photo selected.</p>
+    </section>
+    <section class="slide closing" data-label="A memory entry point" aria-label="Slide 8, Thank you" hidden>
+      <div><h2>Thank <em>you.</em></h2></div><figure><img src="moment-3.jpg" alt="A family gathered around the memory book, its fabric back facing us"></figure>
+    </section>
+    <section class="slide presentation-record" data-label="Presentation &amp; feedback" aria-label="Slide 9, Presentation and feedback" hidden>
+      <div class="record-grid">
+        <button class="record-card record-video" data-video="presentation-video-1.mp4" data-title="In-class presentation · Clip 01" aria-label="Play presentation video 1">
+          <img src="presentation-video-1-poster.jpg" alt="In-class presentation, video 1" loading="lazy"><span class="play-mark" aria-hidden="true">▶</span><span class="record-caption">Presentation <span>01 · 0:22 ↗</span></span>
+        </button>
+        <button class="record-card record-video" data-video="presentation-video-2.mp4" data-title="In-class presentation · Clip 02" aria-label="Play presentation video 2">
+          <img src="presentation-video-2-poster.jpg" alt="In-class presentation, video 2" loading="lazy"><span class="play-mark" aria-hidden="true">▶</span><span class="record-caption">Presentation <span>02 · 0:18 ↗</span></span>
+        </button>
+        <button class="record-card" data-photo="presentation-photo-1.jpg" data-title="The presentation desk" aria-label="Enlarge presentation desk photo"><img src="presentation-photo-1.jpg" alt="Presentation desk with prototype, laptop, sketches and feedback notes" loading="lazy"><span class="record-caption">On the desk <span>↗</span></span></button>
+        <button class="record-card" data-photo="presentation-photo-2.jpg" data-title="Class feedback · Form and pages" aria-label="Enlarge feedback photo 1"><img src="presentation-photo-2.jpg" alt="Class feedback notes next to the Road Book Light sketch" loading="lazy"><span class="record-caption">Feedback / 01 <span>↗</span></span></button>
+        <button class="record-card" data-photo="presentation-photo-3.jpg" data-title="Class feedback · Light and the physical prototype" aria-label="Enlarge feedback photo 2"><img src="presentation-photo-3.jpg" alt="Feedback on the connection between physical lights and the presentation demo" loading="lazy"><span class="record-caption">Feedback / 02 <span>↗</span></span></button>
+        <button class="record-card" data-photo="presentation-photo-4.jpg" data-title="Class feedback · Shared memories and perspectives" aria-label="Enlarge feedback photo 3"><img src="presentation-photo-4.jpg" alt="Feedback notes about shared memories, perspectives and the prototype" loading="lazy"><span class="record-caption">Feedback / 03 <span>↗</span></span></button>
+      </div>
+      <p class="record-hint">In the classroom · September 28, 2026 <span>Click to enlarge or play</span></p>
+    </section>
+    <section class="slide design-update" data-label="Design update · One book, two perspectives" aria-label="Slide 10, Interactive design update" hidden>
+      <iframe id="updated-model" data-src="model.html" title="Interactive full-bleed Light Pages accordion model" aria-label="Drag to rotate Light Pages and discover two different photos" loading="lazy"></iframe>
+    </section>
+  </main>
+  <footer class="presentation-nav"><span id="slide-count">01 / 10</span><nav id="slide-dots" aria-label="Presentation slides"></nav><div class="nav-end"><button id="prev" aria-label="Previous slide">←</button><button id="next" aria-label="Next slide">→</button></div></footer>
+  <dialog id="record-dialog" aria-labelledby="record-title"><div class="record-dialog-heading"><h2 id="record-title"></h2><button id="record-close" class="close-button" aria-label="Close media viewer">×</button></div><div class="record-media"><img id="record-large" alt="" hidden><video id="record-player" controls playsinline preload="none" hidden></video></div><a id="record-original" class="quiet" target="_blank" rel="noreferrer">Open media in a new tab ↗</a></dialog>
+  <dialog id="hardware-dialog"><div class="hardware-heading"><h2>Arduino setup</h2><button id="hardware-close" class="close-button" aria-label="Close Arduino setup">×</button></div><p id="demo-status" role="status" aria-live="polite">Screen only. No physical lights are connected.</p><div class="hardware-actions"><button id="connect" class="primary">Connect Arduino</button><button id="disconnect" class="quiet" hidden>Disconnect safely</button><button id="rehearsal" class="quiet" hidden>Continue with simulation</button></div><div class="setup-details"><p>Use Chrome and the local launcher. Upload the included V2 two-light sketch; close Arduino Serial Monitor before connecting.</p><p>Disconnect the servo’s power and signal; disengage its drive before opening the book by hand. Keep each LED’s series resistor. Only D6 and D11 are used.</p><p>V2 firmware required. Revisit → left / A / D6. Another view → right / B / D11. Compare → both on. Board acknowledgement confirms a command, not measured light output.</p><p>The on-screen glow is an illustrative memory cue, not a recorded light trace. These photos illustrate the concept, not one synchronised journey. No recording runs on this page.</p></div></dialog>
+  <dialog id="appendix"><div class="appendix-header"><div><p class="eyebrow">LIGHT PAGES / DESIGN ARCHIVE</p><h2>Appendix</h2></div><div><a id="pdf-link" class="quiet" href="Light_Pages_Pitch_Appendix.pdf" download>Earlier PDF · 6-page pitch</a><button id="appendix-close" class="close-button" aria-label="Close appendix">×</button></div></div><div id="appendix-content"></div></dialog>
+  <dialog id="image-dialog"><button id="image-close" class="close-button" aria-label="Close enlarged image">×</button><img id="image-large" src="moodboard.jpg" alt=""><p id="image-caption"></p></dialog>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
