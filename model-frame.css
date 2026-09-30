@@ -16,3 +16,17 @@
 #lp-arc180-study .detail{margin:0;text-align:center;font-size:.75rem;min-height:1.5em;color:#8f958b}
 @media(max-width:650px){#lp-arc180-study{gap:10px}.heading h3{font-size:.9rem}.heading span{font-size:.7rem}.viz-controls{gap:6px}.btn{padding:9px 11px;font-size:.75rem}#lp-arc180-study canvas{aspect-ratio:auto}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
+/* A shared, slow light pool. No camera shake or fast flashing. */
+#lp-arc180-study .stage,#lp-accordion-study .stage{isolation:isolate;background:transparent;overflow:hidden}
+#lp-arc180-study .stage::before,#lp-accordion-study .stage::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at var(--glow-position,50%) 88%,#efa06aaa 0%,#de845946 26%,transparent 64%);opacity:var(--glow-opacity,.48);pointer-events:none;z-index:-1}
+#lp-accordion-study{height:100%;display:flex;flex-direction:column;gap:14px;padding:3px 0}
+#lp-accordion-study .heading{color:#b5b9b1;padding:0 2px;gap:8px}
+#lp-accordion-study .heading h3{color:var(--foreground)}
+#lp-accordion-study .stage{flex:1;min-height:0}
+#lp-accordion-study canvas{width:100%;height:100%;aspect-ratio:auto;touch-action:none}
+#lp-accordion-study .fields{margin:0;gap:24px;grid-template-columns:minmax(160px,300px) auto;justify-content:space-between}
+#lp-accordion-study .form-label{font-size:.8rem;color:#b5b9b1}
+#lp-accordion-study .form-range{display:block;width:100%;accent-color:var(--orange);margin:8px 0 0;cursor:pointer}
+#lp-accordion-study output{float:right;color:var(--foreground)}
+#lp-accordion-study .view-label{margin:0;text-align:center;font-size:.75rem;color:#8f958b}
+@media(max-width:650px){#lp-accordion-study{gap:10px}#lp-accordion-study .fields{gap:15px;grid-template-columns:minmax(140px,230px) auto}}

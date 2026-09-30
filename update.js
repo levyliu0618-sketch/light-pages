@@ -23,9 +23,15 @@
   dialog.addEventListener('close',()=>{stop();document.body.classList.remove('modal-open');lastTrigger?.focus();});
   dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close();}});
   document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause();});
-  const frame=document.getElementById('updated-model');
-  const slide=frame.closest('.slide');
-  function loadModel(){if(!slide.hidden&&!frame.getAttribute('src'))frame.src=frame.dataset.src;}
-  new MutationObserver(loadModel).observe(slide,{attributes:true,attributeFilter:['hidden']});
-  loadModel();
+  document.querySelectorAll('iframe[data-src]').forEach(frame=>{
+    const slide=frame.closest('.slide');
+    function syncModel(){
+      if(!slide.hidden&&!frame.getAttribute('src'))frame.src=frame.dataset.src;
+      if(frame.getAttribute('src'))frame.contentWindow?.postMessage({type:'light-pages-visibility',active:!slide.hidden&&!document.hidden},location.origin);
+    }
+    frame.addEventListener('load',syncModel);
+    new MutationObserver(syncModel).observe(slide,{attributes:true,attributeFilter:['hidden']});
+    document.addEventListener('visibilitychange',syncModel);
+    syncModel();
+  });
 })();
